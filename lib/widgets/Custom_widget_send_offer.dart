@@ -19,7 +19,7 @@ class CustomWidgetSendOrder extends StatelessWidget {
     {
       'icon': Icons.android,
       'text': 'Android',
-      'color': ColorManager.white,
+      'color': ColorManager.primary,
     },
     {
       'icon': Icons.share,
@@ -49,7 +49,7 @@ class CustomWidgetSendOrder extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   'Our Service',
                   style: TextStyle(
                     fontSize: 24,

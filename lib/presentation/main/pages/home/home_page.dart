@@ -7,8 +7,7 @@ class HomePage extends StatelessWidget {
 
   final List<String> images = List.generate(
     10,
-    (index) =>
-        'https://images.skynewsarabia.com/images/v2/2023/10/03/1658558/800/450/1-1658558.jpeg',
+    (index) => 'assets/3.jpeg',
   );
 
   @override
@@ -93,7 +92,7 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 3 / 2, 
+      aspectRatio: 3 / 2,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
@@ -107,7 +106,7 @@ class ImageCard extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: Image.network(
+          child: Image.asset(
             imageUrl,
             fit: BoxFit.cover,
           ),

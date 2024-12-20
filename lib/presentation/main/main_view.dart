@@ -1,5 +1,7 @@
 import 'package:company_flutter/presentation/main/pages/home/home_page.dart';
 import 'package:company_flutter/presentation/main/pages/new_offers/new_offers_page.dart';
+import 'package:company_flutter/presentation/main/pages/our_case_studies/our_case_studies_page.dart';
+import 'package:company_flutter/presentation/main/pages/reservation_form_page/reservation_form_page.dart';
 import 'package:company_flutter/presentation/main/pages/send_order/send_order_page.dart';
 import 'package:company_flutter/resources/color_manager.dart';
 import 'package:company_flutter/resources/font_manager.dart';
@@ -17,9 +19,11 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    HomePage(), 
+    HomePage(),
     const NewOffersPage(),
     const SendOrderPage(),
+    OurCaseStudiesPage(),
+    const ReservationFormPage(), // Add the new page here
   ];
 
   @override
@@ -35,7 +39,7 @@ class _MainPageState extends State<MainPage> {
       currentIndex: _currentIndex,
       onTap: _onTabTapped,
       backgroundColor: ColorManager.primary,
-      selectedItemColor: ColorManager.white,
+      selectedItemColor: ColorManager.primary,
       unselectedItemColor: ColorManager.grey1,
       items: const [
         BottomNavigationBarItem(
@@ -50,6 +54,14 @@ class _MainPageState extends State<MainPage> {
           icon: Icon(Icons.send),
           label: 'Send Offer',
         ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.business),
+          label: 'Our Case Studies',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.message),
+          label: 'Reservation Form',
+        ),
       ],
     );
   }
@@ -59,57 +71,4 @@ class _MainPageState extends State<MainPage> {
       _currentIndex = index;
     });
   }
-}
-
-class OffersPage extends StatelessWidget {
-  const OffersPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const PageContent(pageTitle: 'Offers Page');
-  }
-}
-
-class SendOfferPage extends StatelessWidget {
-  const SendOfferPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const PageContent(pageTitle: 'Send Offer Page');
-  }
-}
-
-class PageContent extends StatelessWidget {
-  final String pageTitle;
-
-  const PageContent({required this.pageTitle, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        pageTitle,
-        style: getSemiBoldStyle(
-            color: ColorManager.darkGray, fontSize: FontSize.s22),
-      ),
-    );
-  }
-}
-
-class Product {
-  final String image;
-  final String title;
-  final String description;
-  final double rate;
-  final int count;
-  final String price;
-
-  Product({
-    required this.image,
-    required this.title,
-    required this.description,
-    required this.rate,
-    required this.count,
-    required this.price,
-  });
 }

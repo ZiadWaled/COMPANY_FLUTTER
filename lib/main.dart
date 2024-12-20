@@ -8,12 +8,12 @@ Future<void> main() async {
 
 @immutable
 class MyApp extends StatelessWidget {
-  MyApp._internal(); // named constructor
+  MyApp._internal(); 
 
   int? appState = 0;
 
   static final MyApp _instance =
-      MyApp._internal(); // single instance or singleton
+      MyApp._internal();
 
   factory MyApp() =>
       _instance; 
